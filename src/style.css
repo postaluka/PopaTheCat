@@ -17,13 +17,53 @@ html, body {
     z-index: 0;
 }
 
-.videojs_player {
-    position: absolute;
-    z-index: 1;
+
+
+.videoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 100vh;
 }
 
-.video_player {
-    position: absolute;
-    z-index: 1;
-    left: 500px;
+.video {
+    position: relative;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+
 }
+
+.buttonContainer {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+
+@media (max-width: 730px) {
+    /* Styles for smaller window width */
+    .video {
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Styles for desktop version */
+    .video {
+        width: 800px; /* Set the desired width for desktop */
+        height: 450px; /* Set the desired height for desktop */
+    }
+}
+
+@media (max-width: 767px) {
+    /* Styles for phone version */
+    .video {
+        width: 90%; /* Set the width to 100% for phone */
+        height: 50%; /* Allow the height to adjust automatically for phone */
+    }
+}
+

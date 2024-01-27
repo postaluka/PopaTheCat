@@ -2,35 +2,74 @@
 import Experience from './Experience/Experience'
 import videojs from 'video.js';
 
+import util from 'canvas-sketch-util'
+
+console.log(util);
+
 
 /**
  * Canvas
  */
 const canvas = document.querySelector('canvas.webgl')
 
-console.log(videojs);
+const video = document.querySelector('video')
 
-// videojs(document.querySelector('.video-js'))
+const numverOfVideos = 4
 
-videojs("my-player",
+let previousStatus = null
+
+randomVideo()
+
+randomButton.addEventListener('click', randomVideo);
+
+function randomVideo()
+{
+    let number = util.random.rangeFloor(1, numverOfVideos + 1)
+    console.log(number);
+
+    if (number < 10)
     {
-        controls: true,
-        autoplay: true,
-        preload: 'auto'
-    })
+        number = '0' + number
+    }
 
-videojs.getPlayer()
+    if (!previousStatus)
+    {
+        previousStatus = number
 
-// const videojs = document.querySelector('.videojs_player')
+        console.log('null ->', previousStatus);
+    }
+    if (previousStatus)
+    {
+        if (number === previousStatus)
+        {
+            randomVideo()
+        }
+        console.log('number:', number, 'previousStatus:', previousStatus);
+    }
 
-// console.log(videojs);
+    video.innerHTML = ` <source src="/Video/video-${number}.mp4" type="video/mp4"></source> `
 
-// videojs.getPlayer()
+    video.addEventListener('loadedmetadata', function ()
+    {
+        video.play();
+    });
+
+    video.load();
+
+    // video.load();
+    // video.play();
+}
+
+
 
 /**
  * Experience class
  */
 
-const experience = new Experience(canvas)
+// const experience = new Experience(canvas)\
+
+
+
+
 
 
