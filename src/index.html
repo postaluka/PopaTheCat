@@ -13,13 +13,28 @@
 <body>
 
     <div class="videoContainer">
-        <video class="video" id='video-01' controls>
-            <source src="" type="video/mp4">
+
+        <video class="video" id='video-01' controls muted autoplay>
+            <source src="/Video/video-01.mp4" type="video/mp4">
         </video>
 
         <div class="buttonContainer">
+            <button id="previousButton">Previous</button>
             <button id="randomButton">Random Video</button>
+            <button id="nextButton">Next</button>
         </div>
+
+        <div class="listContainer">
+            <div class="yearContainer">
+                <select name="yearSelect" id="yearSelect"> </select>
+            </div>
+
+            <div class="monthContainer">
+                <select name="monthSelect" id="monthSelect"> </select>
+            </div>
+        </div>
+
+
 
     </div>
 

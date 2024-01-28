@@ -1,64 +1,49 @@
 
 import Experience from './Experience/Experience'
+import Gallery from './Gallery/Gallery';
 import videojs from 'video.js';
 
 import util from 'canvas-sketch-util'
-
-console.log(util);
-
 
 /**
  * Canvas
  */
 const canvas = document.querySelector('canvas.webgl')
 
-const video = document.querySelector('video')
+/**
+ * Video
+ */
+const videoCanvas = document.querySelector('.video')
 
-const numverOfVideos = 4
+/**
+ * UI
+ */
+const yearContainer = document.querySelector('.yearContainer')
+const monthContainer = document.querySelector('.monthContainer')
 
-let previousStatus = null
 
-randomVideo()
+/**
+ * Gallery class
+ */
 
-randomButton.addEventListener('click', randomVideo);
+const gallery = new Gallery(videoCanvas, yearContainer, monthContainer)
 
-function randomVideo()
+randomButton.addEventListener('click', () =>
 {
-    let number = util.random.rangeFloor(1, numverOfVideos + 1)
-    console.log(number);
+    gallery.video.setRandomNumber()
+});
+previousButton.addEventListener('click', () =>
+{
+    gallery.video.setPrevious()
+});
+nextButton.addEventListener('click', () =>
+{
+    gallery.video.setNext()
+});
 
-    if (number < 10)
-    {
-        number = '0' + number
-    }
 
-    if (!previousStatus)
-    {
-        previousStatus = number
+// createYearList()
 
-        console.log('null ->', previousStatus);
-    }
-    if (previousStatus)
-    {
-        if (number === previousStatus)
-        {
-            randomVideo()
-        }
-        console.log('number:', number, 'previousStatus:', previousStatus);
-    }
-
-    video.innerHTML = ` <source src="/Video/video-${number}.mp4" type="video/mp4"></source> `
-
-    video.addEventListener('loadedmetadata', function ()
-    {
-        video.play();
-    });
-
-    video.load();
-
-    // video.load();
-    // video.play();
-}
 
 
 

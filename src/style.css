@@ -17,8 +17,6 @@ html, body {
     z-index: 0;
 }
 
-
-
 .videoContainer {
     display: flex;
     flex-direction: column;
@@ -36,12 +34,46 @@ html, body {
 
 }
 
+.listContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;    
+}
+
+/* .yearMonthContainer {
+    display: flex;
+    align-items: center;
+} */
+
+.yearContainer,
+.monthContainer {
+    margin: 1px;
+}
+
 .buttonContainer {
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     margin-top: 10px; /* Adjust the margin as needed */
 }
+
+#randomButton,
+#previousButton,
+#nextButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 10px;
+    /* border-radius: 10px; */
+    /* background-color: #262626; */
+    /* color: white; */
+    /* font-size: 20px; */
+    /* font-weight: bold; */
+    /* border: none; */
+    /* cursor: pointer; */
+}
+
 
 
 @media (max-width: 730px) {
@@ -66,4 +98,6 @@ html, body {
         height: 50%; /* Allow the height to adjust automatically for phone */
     }
 }
+
+
 
